@@ -14,13 +14,15 @@ class Category(models.Model): # The Category table name that inherits models.Mod
 
     def __str__(self):
         return self.name #name to be shown when called
+    
 class TodoList(models.Model): #Todolist able name that inherits models.Model
     id = models.BigAutoField(primary_key=True)
     title = models.CharField(max_length=250) # a varchar
     content = models.TextField(blank=True) # a text field 
     created = models.DateField(default=timezone.now().strftime("%Y-%m-%d")) # a date
     due_date = models.DateField(default=timezone.now().strftime("%Y-%m-%d")) # a date
-    category = models.ForeignKey(Category, on_delete=models.CASCADE, default="general") # a foreignkey
+    categories = models.ManyToManyField(Category) 
+    
     class Meta:
         ordering = ["-created"] #ordering by the created field
     def __str__(self):

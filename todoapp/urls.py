@@ -19,7 +19,7 @@ from django.urls import path, include
 from todolist.views import index
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('todos/', include('todolist.urls'))
+    path('', include('todolist.urls'))
     # path(r'^$', index, name="TodoList"),
 
 ]

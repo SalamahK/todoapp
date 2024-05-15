@@ -5,3 +5,4 @@ class CategoryForm(forms.ModelForm):
     class Meta:
         model = Category
         fields = ['name']
+        labels = {'name': 'Category Name'}
